@@ -1,7 +1,7 @@
 package com.nyc.sbpharmacy.service;
 
 import com.nyc.sbpharmacy.model.Pharmacy;
-import com.nyc.sbpharmacy.model.PharmacyDTO;
+import com.nyc.sbpharmacy.model.dto.PharmacyDTO;
 import com.nyc.sbpharmacy.repos.PharmacyRepo;
 import org.springframework.stereotype.Service;
 

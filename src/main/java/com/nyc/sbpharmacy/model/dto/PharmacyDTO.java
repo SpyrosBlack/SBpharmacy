@@ -1,4 +1,4 @@
-package com.nyc.sbpharmacy.model;
+package com.nyc.sbpharmacy.model.dto;
 
 public class PharmacyDTO {
 

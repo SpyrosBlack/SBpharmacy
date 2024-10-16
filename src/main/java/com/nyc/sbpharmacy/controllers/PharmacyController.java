@@ -1,6 +1,6 @@
 package com.nyc.sbpharmacy.controllers;
 
-import com.nyc.sbpharmacy.model.PharmacyDTO;
+import com.nyc.sbpharmacy.model.dto.PharmacyDTO;
 import com.nyc.sbpharmacy.service.PharmacyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
