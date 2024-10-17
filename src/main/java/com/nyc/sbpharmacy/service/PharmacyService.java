@@ -22,17 +22,17 @@ private final PharmacyRepo pharmacyRepo;
 
     public PharmacyDTO mapToDTO(Pharmacy pharmacy) {
         PharmacyDTO pharmacyDTO = new PharmacyDTO();
-        pharmacyDTO.setPharmacyAddress(pharmacy.getPharmacyAddress());
-        pharmacyDTO.setPharmacyName(pharmacy.getPharmacyName());
-        pharmacyDTO.setPharmacyCity(pharmacy.getPharmacyCity());
+        pharmacyDTO.setPharmacyAddress(pharmacy.getPharmacyaddress());
+        pharmacyDTO.setPharmacyName(pharmacy.getPharmacyname());
+        pharmacyDTO.setPharmacyCity(pharmacy.getPharmacycity());
         return pharmacyDTO;
     }
 
     public Pharmacy mapToEntity(PharmacyDTO pharmacyDTO) {
         Pharmacy pharmacy = new Pharmacy();
-        pharmacy.setPharmacyAddress(pharmacyDTO.getPharmacyAddress());
-        pharmacy.setPharmacyName(pharmacyDTO.getPharmacyName());
-        pharmacy.setPharmacyCity(pharmacyDTO.getPharmacyCity());
+        pharmacy.setPharmacyaddress(pharmacyDTO.getPharmacyAddress());
+        pharmacy.setPharmacyname(pharmacyDTO.getPharmacyName());
+        pharmacy.setPharmacycity(pharmacyDTO.getPharmacyCity());
         return pharmacy;
     }
 }

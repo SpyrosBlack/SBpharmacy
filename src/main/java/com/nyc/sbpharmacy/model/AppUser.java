@@ -6,9 +6,6 @@ import jakarta.persistence.*;
 public class AppUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
-
     private String username;
     private String userpassword;
     private String firstname;
@@ -19,13 +16,6 @@ public class AppUser {
 
     public AppUser() {
     }
-
-
-
-    public Integer getUserId() {
-        return userId;
-    }
-
 
     public String getUsername() {
         return username;

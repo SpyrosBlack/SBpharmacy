@@ -10,48 +10,48 @@ public class Pharmacy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer pharmacyId;
+    private Integer pharmacyid;
 
-    private String pharmacyName;
-    private String pharmacyAddress;
-    private String pharmacyCity;
+    private String pharmacyname;
+    private String pharmacyaddress;
+    private String pharmacycity;
 
     public Pharmacy() {
     }
 
     public Pharmacy(Integer pharmacyId) {
-        this.pharmacyId = pharmacyId;
+        this.pharmacyid = pharmacyId;
     }
 
     public Integer getPharmacyId() {
-        return pharmacyId;
+        return pharmacyid;
     }
 
-//    public void setPharmacyId(Integer pharmacyId) {
-//        this.pharmacyId = pharmacyId;
-//    }
-
-    public String getPharmacyName() {
-        return pharmacyName;
+    public void setPharmacyId(Integer pharmacyId) {
+        this.pharmacyid = pharmacyId;
     }
 
-    public void setPharmacyName(String pharmacyName) {
-        this.pharmacyName = pharmacyName;
+    public String getPharmacyname() {
+        return pharmacyname;
     }
 
-    public String getPharmacyAddress() {
-        return pharmacyAddress;
+    public void setPharmacyname(String pharmacyName) {
+        this.pharmacyname = pharmacyName;
     }
 
-    public void setPharmacyAddress(String pharmacyAddress) {
-        this.pharmacyAddress = pharmacyAddress;
+    public String getPharmacyaddress() {
+        return pharmacyaddress;
     }
 
-    public String getPharmacyCity() {
-        return pharmacyCity;
+    public void setPharmacyaddress(String pharmacyAddress) {
+        this.pharmacyaddress = pharmacyAddress;
     }
 
-    public void setPharmacyCity(String pharmacyCity) {
-        this.pharmacyCity = pharmacyCity;
+    public String getPharmacycity() {
+        return pharmacycity;
+    }
+
+    public void setPharmacycity(String pharmacyCity) {
+        this.pharmacycity = pharmacyCity;
     }
 }

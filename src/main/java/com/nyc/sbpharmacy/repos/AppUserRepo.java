@@ -4,5 +4,7 @@ import com.nyc.sbpharmacy.model.AppUser;
 import com.nyc.sbpharmacy.model.Pharmacy;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AppUserRepo extends JpaRepository<AppUser, Integer> {
+public interface AppUserRepo extends JpaRepository<AppUser, String> {
+
+    AppUser findByUsernameAndUserpassword(String username, String userpassword);
 }

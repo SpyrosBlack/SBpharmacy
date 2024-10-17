@@ -3,27 +3,15 @@ package com.nyc.sbpharmacy.model.dto;
 import com.nyc.sbpharmacy.model.Role;
 import jakarta.persistence.*;
 
-@Entity
-public class AppUserDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+public class AppUserDto {
 
     private String username;
     private String firstname;
     private String lastname;
-    @Enumerated(EnumType.STRING)
     private Role role;
 
-
     public AppUserDto() {
-    }
-
-
-
-    public Integer getUserId() {
-        return userId;
     }
 
 
