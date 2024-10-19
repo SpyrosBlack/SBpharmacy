@@ -11,7 +11,6 @@ public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pharmacyid;
-
     private String pharmacyname;
     private String pharmacyaddress;
     private String pharmacycity;

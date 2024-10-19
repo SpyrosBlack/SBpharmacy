@@ -11,8 +11,9 @@ public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer medicineid;
-    String medicineName;
-    float medicinePrice;
+
+    String medicinename;
+    float medicineprice;
 
     public Medicine() {
     }
@@ -25,19 +26,28 @@ public class Medicine {
         this.medicineid = medicineid;
     }
 
-    public String getMedicineName() {
-        return medicineName;
+    public String getMedicinename() {
+        return medicinename;
     }
 
-    public void setMedicineName(String medicineName) {
-        this.medicineName = medicineName;
+    public void setMedicinename(String medicineName) {
+        this.medicinename = medicineName;
     }
 
-    public float getMedicinePrice() {
-        return medicinePrice;
+    public float getMedicineprice() {
+        return medicineprice;
     }
 
-    public void setMedicinePrice(float medicinePrice) {
-        this.medicinePrice = medicinePrice;
+    public void setMedicineprice(float medicinePrice) {
+        this.medicineprice = medicinePrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicine{" +
+                "medicineid=" + medicineid +
+                ", medicinename='" + medicinename + '\'' +
+                ", medicineprice=" + medicineprice +
+                '}';
     }
 }
