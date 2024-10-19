@@ -1,7 +1,9 @@
 package com.nyc.sbpharmacy.service;
 
+import com.nyc.sbpharmacy.model.Order;
 import com.nyc.sbpharmacy.model.Pharmacy;
 import com.nyc.sbpharmacy.model.dto.PharmacyDTO;
+import com.nyc.sbpharmacy.repos.OrderRepo;
 import com.nyc.sbpharmacy.repos.PharmacyRepo;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,15 @@ public class PharmacyService {
 
 private final PharmacyRepo pharmacyRepo;
 
-    public PharmacyService(PharmacyRepo pharmacyRepo) {
+private final OrderRepo orderRepo;
+
+    public PharmacyService(PharmacyRepo pharmacyRepo, OrderRepo orderRepo) {
         this.pharmacyRepo = pharmacyRepo;
+        this.orderRepo = orderRepo;
     }
 
     public Integer create(final PharmacyDTO pharmacyDTO) {
-        Pharmacy pharmacy = new Pharmacy();
-        pharmacy=mapToEntity(pharmacyDTO);
+        Pharmacy pharmacy=mapToEntity(pharmacyDTO);
         return pharmacyRepo.save(pharmacy).getPharmacyId();
     }
 
@@ -34,5 +38,9 @@ private final PharmacyRepo pharmacyRepo;
         pharmacy.setPharmacyname(pharmacyDTO.getPharmacyName());
         pharmacy.setPharmacycity(pharmacyDTO.getPharmacyCity());
         return pharmacy;
+    }
+
+    public Order createOrder(Order order){
+return orderRepo.save(order);
     }
 }
