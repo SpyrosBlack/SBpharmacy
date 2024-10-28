@@ -38,7 +38,7 @@ public class AppUserService {
         dto.setUsername(entity.getUsername());
         dto.setFirstname(entity.getFirstname());
         dto.setLastname(entity.getLastname());
-        dto.setRole(entity.getRole());
+        dto.setRole(entity.getRole().name());
         return dto;
     }
 

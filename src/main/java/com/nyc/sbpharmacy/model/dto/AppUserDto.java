@@ -1,15 +1,12 @@
 package com.nyc.sbpharmacy.model.dto;
 
-import com.nyc.sbpharmacy.model.Role;
-import jakarta.persistence.*;
-
 
 public class AppUserDto {
 
     private String username;
     private String firstname;
     private String lastname;
-    private Role role;
+    private String role;
 
     public AppUserDto() {
     }
@@ -39,11 +36,11 @@ public class AppUserDto {
         this.lastname = lastname;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

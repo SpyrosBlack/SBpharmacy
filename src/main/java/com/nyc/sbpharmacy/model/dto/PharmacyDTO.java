@@ -5,8 +5,8 @@ public class PharmacyDTO {
     private String pharmacyName;
     private String pharmacyAddress;
     private String pharmacyCity;
-    private Float lat;
-    private Float lng;
+    private float lat;
+    private float lng;
 
     public PharmacyDTO(String pharmacyName, String pharmacyAddress, String pharmacyCity) {
         this.pharmacyName = pharmacyName;
@@ -41,19 +41,20 @@ public class PharmacyDTO {
         this.pharmacyCity = pharmacyCity;
     }
 
-    public Float getLat() {
+    public float getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(float lat) {
         this.lat = lat;
     }
 
-    public Float getLng() {
+    public float getLng() {
         return lng;
     }
 
-    public void setLng(Float lng) {
+    public void setLng(float lng) {
+
         this.lng = lng;
     }
 

@@ -3,33 +3,35 @@ package com.nyc.sbpharmacy.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "pharmaorders")
+@Table(name="pharmaorder")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderid;
-    @ManyToOne (fetch = FetchType.LAZY)
+    private Long orderid;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="pharmacyid")
     private Pharmacy pharmacy;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="medicineid")
-    private Medicine medicine;
-    private Integer quantity;
+
     @Temporal(TemporalType.DATE)
     private LocalDate orderdate;
+
+    @OneToMany(mappedBy = "orderid", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> items;
 
     public Order() {
     }
 
-    public Integer getOrderid() {
+    public Long getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
+    public void setOrderid(Long id) {
+        this.orderid = id;
     }
 
     public Pharmacy getPharmacy() {
@@ -40,19 +42,19 @@ public class Order {
         this.pharmacy = pharmacy;
     }
 
-    public Medicine getMedicine() {
-        return medicine;
+    public LocalDate getOrderdate() {
+        return orderdate;
     }
 
-    public void setMedicine(Medicine medicine) {
-        this.medicine = medicine;
+    public void setOrderdate(LocalDate orderdate) {
+        this.orderdate = orderdate;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public List<OrderItem> getItems() {
+        return items;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 }

@@ -41,9 +41,9 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login here</h1>
                                     </div>
-                                    <form class="user" th:action="@{/doinsertorder}" th:object="${emptyorder}" method="post" >
+                                    <form class="user" th:action="@{/dopartialorder}" th:object="${tempitem}" method="post" >
 
-                                        <div class="form-select">
+                                        <div class="dropdown no-arrow mb-4">
                                             <select name="medicine" required>
                                                 <th:block th:each="medic : ${allmedicines}">
                                                 <option th:text="${medic.medicinename}" th:value="${medic.medicineid}"></option>
@@ -56,11 +56,36 @@
                                                    placeholder="Quantity">
                                         </div>
 
-                                        <button class="btn btn-primary" type="submit">Login</button>
+                                        <button class="btn btn-primary" type="submit">Εισαγωγή</button>
+
                                         <hr>
                                     </form>
                                     <hr>
                                 </div>
+                                <table th:if="${ not#lists.isEmpty(session.tempItemsList)}" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Α/Α</th>
+                                        <th>Φάρμακο</th>
+                                        <th>Ποσότητα</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="it, iterator : ${session.tempItemsList}">
+                                        <td th:text="${iterator.index+1}"/>
+                                        <td th:text="${it.medicine.medicinename}"/>
+                                        <td th:text="${it.quantity}">
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                                <a href="doinsertorder" class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                    <span class="text">Complete Order</span>
+                                </a>
                             </div>
                         </div>
                     </div>

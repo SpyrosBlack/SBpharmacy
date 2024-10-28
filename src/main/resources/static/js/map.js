@@ -25,8 +25,8 @@ async function initMap() {
         // Save coordinates as JSON
          var coordJSON= JSON.stringify(mapsMouseEvent.latLng.toJSON());
         const coord = JSON.parse(coordJSON);
-        alert(document.querySelector("#pharmlat").value)
-        alert(document.querySelector("#pharmlng").value)
+       // alert(document.querySelector("#pharmlat").value)
+       // alert(document.querySelector("#pharmlng").value)
         document.querySelector("#pharmlat").value=coord.lat;
         document.querySelector("#pharmlng").value=coord.lng;
     });

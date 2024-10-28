@@ -1,52 +1,26 @@
 package com.nyc.sbpharmacy.model.dto;
 
-import com.nyc.sbpharmacy.model.Medicine;
-import com.nyc.sbpharmacy.model.Pharmacy;
-import jakarta.persistence.*;
+import com.nyc.sbpharmacy.model.OrderItem;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-
+@Component
 public class OrderDto {
 
-    private Integer orderid;
-    private Pharmacy pharmacy;
-    private Medicine medicine;
-    private Integer quantity;
-    private LocalDate orderdate;
+    private List<OrderItemDto> itemsofanorder = new ArrayList<>();
 
     public OrderDto() {
+
     }
 
-    public Integer getOrderid() {
-        return orderid;
+    public List<OrderItemDto> getItemsofanorder() {
+        return itemsofanorder;
     }
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
-    }
-
-    public Pharmacy getPharmacy() {
-        return pharmacy;
-    }
-
-    public void setPharmacy(Pharmacy pharmacy) {
-        this.pharmacy = pharmacy;
-    }
-
-    public Medicine getMedicine() {
-        return medicine;
-    }
-
-    public void setMedicine(Medicine medicine) {
-        this.medicine = medicine;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setItemsofanorder(List<OrderItemDto> itemsofanorder) {
+        this.itemsofanorder = itemsofanorder;
     }
 }

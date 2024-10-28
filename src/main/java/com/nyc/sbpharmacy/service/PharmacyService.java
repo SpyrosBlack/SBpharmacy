@@ -1,11 +1,13 @@
 package com.nyc.sbpharmacy.service;
 
-import com.nyc.sbpharmacy.model.Order;
+import com.nyc.sbpharmacy.model.OrderItem;
 import com.nyc.sbpharmacy.model.Pharmacy;
 import com.nyc.sbpharmacy.model.dto.PharmacyDTO;
 import com.nyc.sbpharmacy.repos.OrderRepo;
 import com.nyc.sbpharmacy.repos.PharmacyRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PharmacyService {
@@ -24,11 +26,19 @@ private final OrderRepo orderRepo;
         return pharmacyRepo.save(pharmacy).getPharmacyId();
     }
 
+    public List<PharmacyDTO> getAllPharmacies() {
+        return pharmacyRepo.findAll().stream().map(pharmacy -> mapToDTO(pharmacy)).toList();
+
+    }
+
     public PharmacyDTO mapToDTO(Pharmacy pharmacy) {
         PharmacyDTO pharmacyDTO = new PharmacyDTO();
         pharmacyDTO.setPharmacyAddress(pharmacy.getPharmacyaddress());
         pharmacyDTO.setPharmacyName(pharmacy.getPharmacyname());
         pharmacyDTO.setPharmacyCity(pharmacy.getPharmacycity());
+        pharmacyDTO.setLat(pharmacy.getLat());
+        pharmacyDTO.setLng(pharmacy.getLng());
+        System.out.println(pharmacyDTO);
         return pharmacyDTO;
     }
 
@@ -37,10 +47,12 @@ private final OrderRepo orderRepo;
         pharmacy.setPharmacyaddress(pharmacyDTO.getPharmacyAddress());
         pharmacy.setPharmacyname(pharmacyDTO.getPharmacyName());
         pharmacy.setPharmacycity(pharmacyDTO.getPharmacyCity());
+        pharmacy.setLat(pharmacyDTO.getLat());
+        pharmacy.setLng(pharmacyDTO.getLng());
         return pharmacy;
     }
 
-    public Order createOrder(Order order){
-return orderRepo.save(order);
+    public OrderItem createOrder(OrderItem orderItem){
+return orderRepo.save(orderItem);
     }
 }
