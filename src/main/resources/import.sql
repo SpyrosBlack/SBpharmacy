@@ -8,6 +8,11 @@ INSERT INTO `pharmacydb`.`medicine` (`medicineprice`, `medicinename`) VALUES (2,
 INSERT INTO `pharmacydb`.`medicine` (`medicineprice`, `medicinename`) VALUES (56, 'Medicine 3');
 
 -- populate pharmacy table
-INSERT INTO `pharmacydb`.`pharmacy` (`pharmacyaddress`, `pharmacycity`, `pharmacyname`, `lat`, `lng`) VALUES ('lala', 'lala', 'lala', 38.1725, 23.725);
--- populate pharmacist table
-INSERT INTO `pharmacydb`.`pharmacist` (`pharmacy_pharmacyid`, `user_username`) VALUES (1, 'Spiros');
+INSERT INTO `pharmacydb`.`pharmacy` (`pharmacyaddress`, `pharmacycity`, `pharmacyname`, `lat`, `lng`, `username`) VALUES ('lala', 'lala', 'lala', 38.1725, 23.725, 'Spiros');
+
+-- populate inventory table
+INSERT INTO `pharmacydb`.`inventory` (`dateofcount`, `medicineid`, `pharmacyid`, `quantity`) VALUES ('2025-11-03', 1, 1, 33);
+INSERT INTO `pharmacydb`.`inventory` (`dateofcount`, `medicineid`, `pharmacyid`, `quantity`) VALUES ('2025-11-03', 2, 1, 33);
+INSERT INTO `pharmacydb`.`inventory` (`dateofcount`, `medicineid`, `pharmacyid`, `quantity`) VALUES ('2025-11-03', 3, 1, 33);
+INSERT INTO `pharmacydb`.`inventory` (`dateofcount`, `medicineid`, `pharmacyid`, `quantity`) VALUES ('2025-11-03', 2, 1, 33);
+INSERT INTO `pharmacydb`.`inventory` (`dateofcount`, `medicineid`, `pharmacyid`, `quantity`) VALUES ('2025-11-03', 1, 1, 33);

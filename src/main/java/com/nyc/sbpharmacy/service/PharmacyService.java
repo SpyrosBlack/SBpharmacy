@@ -1,6 +1,6 @@
 package com.nyc.sbpharmacy.service;
 
-import com.nyc.sbpharmacy.model.OrderItem;
+import com.nyc.sbpharmacy.model.AppUser;
 import com.nyc.sbpharmacy.model.Pharmacy;
 import com.nyc.sbpharmacy.model.dto.PharmacyDTO;
 import com.nyc.sbpharmacy.repos.OrderRepo;
@@ -13,8 +13,8 @@ import java.util.List;
 public class PharmacyService {
 
 private final PharmacyRepo pharmacyRepo;
-
 private final OrderRepo orderRepo;
+
 
     public PharmacyService(PharmacyRepo pharmacyRepo, OrderRepo orderRepo) {
         this.pharmacyRepo = pharmacyRepo;
@@ -29,6 +29,10 @@ private final OrderRepo orderRepo;
     public List<PharmacyDTO> getAllPharmacies() {
         return pharmacyRepo.findAll().stream().map(pharmacy -> mapToDTO(pharmacy)).toList();
 
+    }
+
+    public Pharmacy getPharmacyFromUser(AppUser user){
+        return pharmacyRepo.findByAppuser(user);
     }
 
     public PharmacyDTO mapToDTO(Pharmacy pharmacy) {
@@ -52,7 +56,7 @@ private final OrderRepo orderRepo;
         return pharmacy;
     }
 
-    public OrderItem createOrder(OrderItem orderItem){
-return orderRepo.save(orderItem);
-    }
+//    public OrderItem createOrder(OrderItem orderItem){
+//return orderRepo.save(orderItem);
+//    }
 }

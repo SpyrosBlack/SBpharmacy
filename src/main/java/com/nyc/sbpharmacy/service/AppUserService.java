@@ -1,11 +1,8 @@
 package com.nyc.sbpharmacy.service;
 
-import com.nyc.sbpharmacy.controllers.MainController;
 import com.nyc.sbpharmacy.model.AppUser;
-import com.nyc.sbpharmacy.model.Pharmacist;
 import com.nyc.sbpharmacy.model.dto.AppUserDto;
 import com.nyc.sbpharmacy.repos.AppUserRepo;
-import com.nyc.sbpharmacy.repos.PharmacistRepo;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,11 +10,10 @@ public class AppUserService {
 
     private AppUserRepo appUserRepo;
 
-    private PharmacistRepo pharmacistRepo;
 
-    public AppUserService(AppUserRepo appUserRepo, PharmacistRepo pharmacistRepo) {
+
+    public AppUserService(AppUserRepo appUserRepo) {
         this.appUserRepo = appUserRepo;
-        this.pharmacistRepo = pharmacistRepo;
     }
 
     public AppUserDto dologin(String username, String password) {
@@ -27,10 +23,6 @@ public class AppUserService {
         }else
             return null;
 
-    }
-
-    public Pharmacist getPharmacyForUser(AppUserDto user){
-           return pharmacistRepo.findByUser(mapToEntity(user));
     }
 
     public AppUserDto mapToDto(AppUser entity){

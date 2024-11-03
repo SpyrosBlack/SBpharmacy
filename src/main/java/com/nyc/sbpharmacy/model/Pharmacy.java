@@ -1,9 +1,6 @@
 package com.nyc.sbpharmacy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pharmacy {
@@ -16,6 +13,9 @@ public class Pharmacy {
     private String pharmacycity;
     private Float lat;
     private Float lng;
+    @OneToOne
+    @JoinColumn(name="username", referencedColumnName = "username")
+    private AppUser appuser;
 
     public Pharmacy() {
     }
@@ -70,5 +70,13 @@ public class Pharmacy {
 
     public void setLng(Float lng) {
         this.lng = lng;
+    }
+
+    public AppUser getUser() {
+        return appuser;
+    }
+
+    public void setUser(AppUser user) {
+        this.appuser = user;
     }
 }

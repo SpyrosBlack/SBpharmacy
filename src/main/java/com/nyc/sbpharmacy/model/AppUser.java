@@ -12,6 +12,8 @@ public class AppUser {
     private String lastname;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToOne(mappedBy = "appuser")
+    private Pharmacy pharmacy;
 
 
     public AppUser() {
@@ -56,5 +58,13 @@ public class AppUser {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public void setPharmacy(Pharmacy pharmacy) {
+        this.pharmacy = pharmacy;
     }
 }
