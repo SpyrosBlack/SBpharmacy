@@ -13,12 +13,11 @@ import com.nyc.sbpharmacy.service.OrderService;
 import com.nyc.sbpharmacy.service.PharmacyService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
+import org.apache.coyote.http11.HttpOutputBuffer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -74,11 +73,16 @@ public class OrderController {
 
             modelMap.addAttribute("allorders", orderService.getAllOrderForPharmacy(user.getPharmacy()));
         }
-        modelMap.addAttribute("allorders", orderService.getAllOrders());
+      //  modelMap.addAttribute("allorders", orderService.getAllOrders());
         return "allorders.html";
     }
 
-
+        @GetMapping("/getinvformed")
+        @ResponseBody
+        public int getInventoryForMedicineAndPharmacy(@RequestParam int medId, HttpSession session){
+            AppUser user = appUserService.mapToEntity((AppUserDto) session.getAttribute("loggedinuser")) ;
+        return medId;
+        }
 
     @GetMapping(value = "/doinsertorder")
     public String doInserOrder( HttpSession session) {

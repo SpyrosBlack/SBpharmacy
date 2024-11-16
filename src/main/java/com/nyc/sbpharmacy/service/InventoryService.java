@@ -19,7 +19,8 @@ public class InventoryService {
     }
 
     public List<Inventory> getPharmacyInventory(Pharmacy pharmacy) {
-
         return inventoryRepo.findByPharmacyOrderByDateofcount(pharmacy);
     }
+
+
 }

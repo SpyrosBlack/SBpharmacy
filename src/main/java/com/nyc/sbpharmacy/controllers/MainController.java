@@ -25,6 +25,12 @@ mm.addAttribute("login", new LoginDto("", ""));
         return "login.html";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+
     @PostMapping("/dologin")
     public String doLogin(@ModelAttribute("loginDTO") LoginDto dto, ModelMap mm, HttpSession session) {
         AppUserDto loggedinuser = appUserService.dologin(dto.username, dto.userpass);
