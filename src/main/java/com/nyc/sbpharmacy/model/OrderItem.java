@@ -11,7 +11,7 @@ public class OrderItem {
     private Integer orderitemid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="medicineid")
+    @JoinColumn(name = "medicineid")
     private Medicine medicine;
 
     private Integer quantity;
@@ -19,6 +19,8 @@ public class OrderItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderid")
     private Order order;
+
+    private boolean iscompleted = false;
 
     public OrderItem() {
     }
@@ -54,5 +56,13 @@ public class OrderItem {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public boolean isDone() {
+        return iscompleted;
+    }
+
+    public void setDone(boolean done) {
+        iscompleted = done;
     }
 }

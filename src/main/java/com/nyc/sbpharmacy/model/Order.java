@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name="pharmaorder")
+@Table(name = "pharmaorder")
 public class Order {
 
     @Id
@@ -14,7 +14,7 @@ public class Order {
     private Long orderid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="pharmacyid")
+    @JoinColumn(name = "pharmacyid")
     private Pharmacy pharmacy;
 
     @Temporal(TemporalType.DATE)

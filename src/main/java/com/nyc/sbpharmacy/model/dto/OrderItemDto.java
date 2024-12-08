@@ -1,8 +1,8 @@
 package com.nyc.sbpharmacy.model.dto;
 
 import com.nyc.sbpharmacy.model.Medicine;
-import com.nyc.sbpharmacy.model.Order;
-import jakarta.persistence.*;
+
+import java.util.Objects;
 
 
 public class OrderItemDto {
@@ -35,5 +35,17 @@ public class OrderItemDto {
                 "medicine=" + medicine +
                 ", quantity=" + quantity +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderItemDto that = (OrderItemDto) o;
+        return Objects.equals(medicine, that.medicine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(medicine);
     }
 }

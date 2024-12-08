@@ -4,10 +4,10 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -19,8 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/map.css"/>
-    <script type="module" src="js/map.js"></script>
+    <link href="css/map.css" rel="stylesheet" type="text/css"/>
+    <script src="js/map.js" type="module"></script>
 
 </head>
 
@@ -36,7 +36,7 @@
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div class="d-flex flex-column" id="content-wrapper">
 
         <!-- Main Content -->
         <div id="content">
@@ -45,100 +45,113 @@
             <div class="container-fluid">
 
 
-
-
                 <!-- Content Row form-->
                 <div class="row">
 
 
-                        <div class="col-xl-10 col-lg-12 col-md-9">
+                    <div class="col-xl-10 col-lg-12 col-md-9">
 
-                            <div class="card o-hidden border-0 shadow-lg my-5">
-                                <div class="card-body p-0">
-                                    <!-- Nested Row within Card Body -->
-                                    <div class="row">
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <div class="card-body p-0">
+                                <!-- Nested Row within Card Body -->
+                                <div class="row">
 
-                                        <div class="col-lg-6">
-                                            <div class="p-5">
-                                                <div class="text-center">
-                                                    <h1 class="h4 text-gray-900 mb-4">Insert a new Pharmacy</h1>
-                                                </div>
-                                                <form class="user" th:action="@{/doinsertpharm}" th:object="${pharmacyDTO}" method="post" >
-<!--                                                    <input id="pharmlat" type="hidden" name="lat" value="44"/>-->
-<!--                                                    <input id="pharmlng" type="hidden" name="lng" value="66"/>-->
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
-                                                               name="pharmacyName" aria-describedby="emailHelp"
-                                                               placeholder="Name....">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
-                                                               name="pharmacyAddress" aria-describedby="emailHelp"
-                                                               placeholder="Address.....">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
-                                                               name="pharmacyCity" aria-describedby="emailHelp"
-                                                               placeholder="City.......">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input  id="pharmlat" type="number" class="form-control form-control-user"
-                                                               name="lat"
-                                                               placeholder="Latitude"
-                                                        readonly>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input id="pharmlng" type="number" class="form-control form-control-user"
-                                                               name="lng"
-                                                               placeholder="Longtidute"
-                                                               readonly>
-                                                    </div>
-                                                    <button class="btn btn-primary" type="submit">Insert</button>
-
-                                                </form>
-
+                                    <div class="col-lg-6">
+                                        <div class="p-5">
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Insert a new Pharmacy</h1>
                                             </div>
+                                            <form class="user" method="post" th:action="@{/doinsertpharm}"
+                                                  th:object="${pharmacyDTO}">
+                                                <!--                                                    <input id="pharmlat" type="hidden" name="lat" value="44"/>-->
+                                                <!--                                                    <input id="pharmlng" type="hidden" name="lng" value="66"/>-->
+                                                <div class="form-group">
+                                                    <input aria-describedby="emailHelp" class="form-control form-control-user"
+                                                           name="pharmacyName" placeholder="Name...."
+                                                           type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input aria-describedby="emailHelp" class="form-control form-control-user"
+                                                           name="pharmacyAddress" placeholder="Address....."
+                                                           type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input aria-describedby="emailHelp" class="form-control form-control-user"
+                                                           name="pharmacyCity" placeholder="City......."
+                                                           type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control form-control-user" id="pharmlat"
+                                                           name="lat"
+                                                           placeholder="Latitude"
+                                                           readonly
+                                                           type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control form-control-user" id="pharmlng"
+                                                           name="lng"
+                                                           placeholder="Longtidute"
+                                                           readonly
+                                                           type="number">
+                                                </div>
+                                                <button class="btn btn-primary" type="submit">Insert</button>
+
+                                            </form>
+
                                         </div>
                                     </div>
+                                </div>
 
                             </div>
 
+                        </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
                 </div>
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
                 <!-- Content Row map -->
 
 
-
-
-
-
-
                 <!--                end of map-->
-        <!-- End of Main Content -->
+                <!-- End of Main Content -->
 
 
-    </div>
+            </div>
             <div id="map"></div>
-    <!-- End of Content Wrapper -->
+            <!-- End of Content Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
+        </div>
+        <!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-<!--        <div id="map"></div>-->
-</div>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <!--        <div id="map"></div>-->
+    </div>
 
 </div>
 <!--end wrapper-->
 
-<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+<script>(g => {
+    var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document,
+        b = window;
+    b = b[c] || (b[c] = {});
+    var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+        u = () => h || (h = new Promise(async (f, n) => {
+            await (a = m.createElement("script"));
+            e.set("libraries", [...r] + "");
+            for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+            e.set("callback", c + ".maps." + q);
+            a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+            d[q] = f;
+            a.onerror = () => h = n(Error(p + " could not load."));
+            a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+            m.head.append(a)
+        }));
+    d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+})
 ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

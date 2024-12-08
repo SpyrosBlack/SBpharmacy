@@ -1,12 +1,15 @@
 package com.nyc.sbpharmacy.model.dto;
 
 
+import com.nyc.sbpharmacy.model.Pharmacy;
+
 public class AppUserDto {
 
     private String username;
     private String firstname;
     private String lastname;
     private String role;
+    private Pharmacy pharmacy;
 
     public AppUserDto() {
     }
@@ -42,5 +45,13 @@ public class AppUserDto {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public void setPharmacy(Pharmacy pharmacy) {
+        this.pharmacy = pharmacy;
     }
 }

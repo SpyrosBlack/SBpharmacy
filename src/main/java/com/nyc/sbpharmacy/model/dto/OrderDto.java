@@ -1,8 +1,6 @@
 package com.nyc.sbpharmacy.model.dto;
 
-import com.nyc.sbpharmacy.model.OrderItem;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.List;

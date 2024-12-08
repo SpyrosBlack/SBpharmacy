@@ -12,8 +12,8 @@ import java.util.List;
 @Service
 public class PharmacyService {
 
-private final PharmacyRepo pharmacyRepo;
-private final OrderRepo orderRepo;
+    private final PharmacyRepo pharmacyRepo;
+    private final OrderRepo orderRepo;
 
 
     public PharmacyService(PharmacyRepo pharmacyRepo, OrderRepo orderRepo) {
@@ -22,7 +22,7 @@ private final OrderRepo orderRepo;
     }
 
     public Integer create(final PharmacyDTO pharmacyDTO) {
-        Pharmacy pharmacy=mapToEntity(pharmacyDTO);
+        Pharmacy pharmacy = mapToEntity(pharmacyDTO);
         return pharmacyRepo.save(pharmacy).getPharmacyId();
     }
 
@@ -31,7 +31,7 @@ private final OrderRepo orderRepo;
 
     }
 
-    public Pharmacy getPharmacyFromUser(AppUser user){
+    public Pharmacy getPharmacyFromUser(AppUser user) {
         return pharmacyRepo.findByAppuser(user);
     }
 

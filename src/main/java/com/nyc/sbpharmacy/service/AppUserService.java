@@ -11,30 +11,30 @@ public class AppUserService {
     private AppUserRepo appUserRepo;
 
 
-
     public AppUserService(AppUserRepo appUserRepo) {
         this.appUserRepo = appUserRepo;
     }
 
     public AppUserDto dologin(String username, String password) {
-        AppUser u =  appUserRepo.findByUsernameAndUserpassword(username, password);
-        if(u!=null) {
+        AppUser u = appUserRepo.findByUsernameAndUserpassword(username, password);
+        if (u != null) {
             return mapToDto(u);
-        }else
+        } else
             return null;
 
     }
 
-    public AppUserDto mapToDto(AppUser entity){
+    public AppUserDto mapToDto(AppUser entity) {
         AppUserDto dto = new AppUserDto();
         dto.setUsername(entity.getUsername());
         dto.setFirstname(entity.getFirstname());
         dto.setLastname(entity.getLastname());
         dto.setRole(entity.getRole().name());
+        dto.setPharmacy(entity.getPharmacy());
         return dto;
     }
 
-    public AppUser mapToEntity(AppUserDto dto){
+    public AppUser mapToEntity(AppUserDto dto) {
         return appUserRepo.findById(dto.getUsername()).get();
     }
 }

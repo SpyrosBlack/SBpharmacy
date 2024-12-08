@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PharmacyController {
 
-    private final PharmacyService   pharmacyService;
+    private final PharmacyService pharmacyService;
 
     private final AppUserService appUserService;
-
 
 
     public PharmacyController(PharmacyService pharmacyService, AppUserService appUserService, MedicineService medicineService) {
@@ -36,7 +35,7 @@ public class PharmacyController {
     public String insetrPharm(@ModelAttribute("pharmacyDTO") PharmacyDTO pharmacyDTO) {
         System.out.println(pharmacyDTO);
         //TODO implement this. Only for admins
-       pharmacyService.create(pharmacyDTO);
+        pharmacyService.create(pharmacyDTO);
         return "redirect:/allpharm";
     }
 

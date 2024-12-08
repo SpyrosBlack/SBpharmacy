@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Φάρμακα</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <style>
+        #map-canvas {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div th:insert="fragments/general.html :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div class="d-flex flex-column" id="content-wrapper">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:insert="fragments/general.html :: top"></div>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">ΦΑΡΜΑΚΑ</h1>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                            <table cellspacing="0" class="table table-bordered" id="dataTable" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="m : ${medicines}">
+                                    <td th:text="${m.medicinename}"/>
+                                    <td th:text="${m.medicineprice}">
+                                    <td>
+                                        <div class="float-end text-nowrap">
+                                            <a class="btn btn-sm btn-secondary"
+                                               th:href="@{/medicineedit/{medicineid}(medicineid=${m.medicineid})}">Edit</a>
+                                            <form class="js-submit-confirm d-inline"
+                                                  data-confirm-message="Are you sure?" method="post"
+                                                  th:action="@{/medicinedelete/{medicineid}(medicineid=${m.medicineid})}">
+                                                <button class="btn btn-sm btn-secondary" type="submit">Disable</button>
+                                            </form>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+<!-- Map Modal-->
+<div class="modal fade" id="myMapModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100">Google Map <span class="float-right" id="lat"></span></h4>
+                <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="" id="map-canvas"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+<script>
+    //var element = $(this);
+    var map;
+
+    function initialize(myCenter) {
+        var marker = new google.maps.Marker({
+            position: myCenter
+        });
+
+        var mapProp = {
+            center: myCenter,
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+        marker.setMap(map);
+    };
+
+    $('#myMapModal').on('show.bs.modal', function (e) {
+        var element = $(e.relatedTarget);
+        var data = element.data("lat").split(',');
+        var latlng = new google.maps.LatLng(data[0], data[1]);
+        initialize(latlng);
+        $("#lat").html(latlng.lat() + ", " + latlng.lng());
+        google.maps.event.trigger(map, 'resize');
+    });
+
+
+</script>
+
+</body>
+
+</html>

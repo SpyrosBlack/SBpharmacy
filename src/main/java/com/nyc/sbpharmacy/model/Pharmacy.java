@@ -14,7 +14,7 @@ public class Pharmacy {
     private Float lat;
     private Float lng;
     @OneToOne
-    @JoinColumn(name="username", referencedColumnName = "username")
+    @JoinColumn(name = "username", referencedColumnName = "username")
     private AppUser appuser;
 
     public Pharmacy() {

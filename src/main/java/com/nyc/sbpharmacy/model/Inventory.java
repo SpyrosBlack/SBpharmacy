@@ -12,11 +12,11 @@ public class Inventory {
     private Long inventory_id;
 
     @ManyToOne
-    @JoinColumn(name="pharmacyid")
+    @JoinColumn(name = "pharmacyid")
     private Pharmacy pharmacy;
 
     @ManyToOne
-    @JoinColumn(name="medicineid")
+    @JoinColumn(name = "medicineid")
     private Medicine medicine;
 
     private Integer quantity;
