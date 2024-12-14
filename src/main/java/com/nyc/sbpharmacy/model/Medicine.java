@@ -12,9 +12,11 @@ import java.util.Set;
 public class Medicine {
 
     String medicinename;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer medicineid;
+
     @Positive(message = "Price muct be a positive number")
     private float medicineprice;
 
@@ -22,7 +24,7 @@ public class Medicine {
     private Set<OrderItem> orderItemSet = new HashSet<>();
 
     @ColumnDefault("false")
-    private boolean disabled;
+    private boolean disabledMed;
 
 
     public Medicine() {
@@ -69,13 +71,13 @@ public class Medicine {
     }
 
 
-    public boolean isDisabled() {
-        return disabled;
+    public boolean isDisabledMed() {
+        return disabledMed;
     }
 
 
-    public void setDisabled(boolean isdisabled) {
-        this.disabled = isdisabled;
+    public void setDisabledMed(boolean isdisabled) {
+        this.disabledMed = isdisabled;
     }
 
 
@@ -86,7 +88,7 @@ public class Medicine {
                 ", medicinename='" + medicinename + '\'' +
                 ", medicineprice=" + medicineprice +
                 ", orderItemSet=" + orderItemSet +
-                ", isdisabled=" + disabled +
+                ", isdisabled=" + disabledMed +
                 '}';
     }
 

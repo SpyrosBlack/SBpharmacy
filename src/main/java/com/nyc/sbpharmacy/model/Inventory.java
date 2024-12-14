@@ -15,7 +15,7 @@ public class Inventory {
     @JoinColumn(name = "pharmacyid")
     private Pharmacy pharmacy;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicineid")
     private Medicine medicine;
 
@@ -23,6 +23,9 @@ public class Inventory {
 
     @Temporal(TemporalType.DATE)
     private LocalDate dateofcount;
+
+    public Inventory() {
+    }
 
     public Long getInventory_id() {
         return inventory_id;

@@ -10,7 +10,7 @@ public class InventoryWarehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "inventory_id", nullable = false)
-    private Long id;
+    private Long inventoryid;
 
     @Column(name = "dateofcount")
     private LocalDate dateofcount;
@@ -22,12 +22,12 @@ public class InventoryWarehouse {
     @Column(name = "quantity")
     private Integer quantity;
 
-    public Long getId() {
-        return id;
+    public Long getInventoryid() {
+        return inventoryid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setInventoryid(Long id) {
+        this.inventoryid = id;
     }
 
     public LocalDate getDateofcount() {

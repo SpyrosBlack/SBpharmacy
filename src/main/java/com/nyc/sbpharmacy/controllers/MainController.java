@@ -4,6 +4,7 @@ import com.nyc.sbpharmacy.AppScopeBean;
 import com.nyc.sbpharmacy.model.dto.AppUserDto;
 import com.nyc.sbpharmacy.model.dto.DashBoardDto;
 import com.nyc.sbpharmacy.service.AppUserService;
+import com.nyc.sbpharmacy.service.MessageService;
 import com.nyc.sbpharmacy.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class MainController {
     private OrderService orderService;
     @Autowired
     private AppScopeBean applicationScopeBean;
+    @Autowired
+    MessageService messageService;
 
     @GetMapping("/")
     public String showMainPage(ModelMap mm) {
@@ -54,14 +57,12 @@ public class MainController {
     public String showDashboard(ModelMap mm, HttpSession session) {
         DashBoardDto ddto = new DashBoardDto();
         AppUserDto loggedinuser = (AppUserDto) session.getAttribute("loggedinuser");
-
-
         ddto.setTotalorders(orderService.getAllOrderForPharmacy(loggedinuser.getPharmacy()).size());
         if (loggedinuser.getRole() == "Pharmacist") {
             ddto.setTotalcostoforders(orderService.getOrdersCostTotalByPharmacy(loggedinuser.getPharmacy()));
         }
 
-
+        mm.addAttribute("mymessages",  messageService.getMyMessages(appUserService.mapToEntity(loggedinuser)));
         mm.addAttribute("dashboard", ddto);
         return "index";
     }

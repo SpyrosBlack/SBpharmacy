@@ -3,6 +3,8 @@ package com.nyc.sbpharmacy.model.dto;
 
 import com.nyc.sbpharmacy.model.Pharmacy;
 
+import java.util.Objects;
+
 public class AppUserDto {
 
     private String username;
@@ -53,5 +55,17 @@ public class AppUserDto {
 
     public void setPharmacy(Pharmacy pharmacy) {
         this.pharmacy = pharmacy;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUserDto that = (AppUserDto) o;
+        return Objects.equals(username, that.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(username);
     }
 }

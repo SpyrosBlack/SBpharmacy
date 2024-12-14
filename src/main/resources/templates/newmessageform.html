@@ -9,7 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-    <title>Login</title>
+    <title>Add new pharmacy</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,10 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<!--    <script th:if="${session.loggedinuser!=null}">-->
-<!--        alert('Loss of location information found. Turning into setting page...');-->
-<!--        location.href='/setlocation';-->
-<!--    </script>-->
+
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -44,23 +42,26 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Login here</h1>
                                 </div>
-                                <form class="user" method="post" th:action="@{/dologin}" th:object="${loginDTO}">
+                                <form class="user" method="post" th:action="@{/insertmessage}" th:object="${message}">
 
-                                    <div class="form-group">
-                                        <input class="form-control form-control-user" name="username"
-                                               placeholder="User Name...." type="text">
+                                    <div class="dropdown no-arrow mb-4">
+                                        <select id="selectmed" name="receiver" required>
+                                            <option value="0">Receiver</option>
+                                            <th:block th:each="rec : ${receivers}">
+                                                <option th:text="|${rec.firstname}-${rec.lastname}-${rec.role}|"
+                                                        th:value="${rec.username}"></option>
+                                            </th:block>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control-user" name="userpass"
-                                               placeholder="Password"
-                                               type="password">
+                                        <textarea class="text-black-50" name="messagebody"></textarea>
                                     </div>
 
-                                    <button class="btn btn-primary" type="submit">Login</button>
+                                    <button class="btn btn-primary" type="submit">Αποστολή</button>
 
+                                    <hr>
                                 </form>
                                 <hr>
-                                <span class="danger" th:text="${message}"></span>
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-
 </body>
 
 </html>

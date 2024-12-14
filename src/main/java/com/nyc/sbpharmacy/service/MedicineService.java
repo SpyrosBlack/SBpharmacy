@@ -17,11 +17,11 @@ public class MedicineService {
 
     public List<Medicine> getAllMedicine() {
         return medicineRepo.findAll()
-                .stream().filter(m -> m.isDisabled() == false).collect(Collectors.toList());
+                .stream().filter(m -> m.isDisabledMed() == false).collect(Collectors.toList());
     }
 
     public Medicine getMedicineById(int id) {
-        return medicineRepo.getReferenceById(id);
+        return medicineRepo.findById(id).get();
     }
 
     public void insertMedicine(Medicine medicine) {
@@ -34,7 +34,7 @@ public class MedicineService {
 
     public void disableMedicineById(Integer medicineid) {
         Medicine m = medicineRepo.getReferenceById(medicineid);
-        m.setDisabled(true);
+        m.setDisabledMed(true);
         medicineRepo.save(m);
     }
 }

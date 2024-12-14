@@ -5,6 +5,7 @@ public class DashBoardDto {
     private int totalorders;
     private float totalcostoforders;
     private int totalonlinepersons;
+    private int totalmessages;
 
     public int getTotalorders() {
         return totalorders;
@@ -28,5 +29,13 @@ public class DashBoardDto {
 
     public void setTotalonlinepersons(int totalonlinepersons) {
         this.totalonlinepersons = totalonlinepersons;
+    }
+
+    public int getTotalmessages() {
+        return totalmessages;
+    }
+
+    public void setTotalmessages(int totalmessages) {
+        this.totalmessages = totalmessages;
     }
 }

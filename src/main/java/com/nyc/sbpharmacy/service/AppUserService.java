@@ -5,6 +5,9 @@ import com.nyc.sbpharmacy.model.dto.AppUserDto;
 import com.nyc.sbpharmacy.repos.AppUserRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AppUserService {
 
@@ -36,5 +39,12 @@ public class AppUserService {
 
     public AppUser mapToEntity(AppUserDto dto) {
         return appUserRepo.findById(dto.getUsername()).get();
+    }
+
+    public List<AppUserDto> getAllUsersDto() {
+        return appUserRepo.findAll().
+                stream().
+                map(this::mapToDto).
+                collect(Collectors.toList());
     }
 }

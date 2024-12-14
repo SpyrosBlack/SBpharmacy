@@ -1,3 +1,4 @@
+
 -- populate user table
 INSERT INTO `pharmacydb`.`app_user` (`firstname`, `lastname`, `username`, `userpassword`, `role`)
 VALUES ('Lakis', 'Spiros', 'Spiros', '1234', 'Pharmacist');
