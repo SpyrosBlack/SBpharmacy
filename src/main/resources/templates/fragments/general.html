@@ -145,7 +145,7 @@
                    href="#" id="messagesDropdown" role="button">
                     <i class="fas fa-envelope fa-fw"></i>
                     <!-- Counter - Messages -->
-                    <span class="badge badge-danger badge-counter" th:text="${mymessages.size()}"/>
+                    <span class="badge badge-danger badge-counter" th:if="${mymessages}" th:text="${mymessages.size()}"/>
                 </a>
                 <!-- Dropdown - Messages -->
                 <div aria-labelledby="messagesDropdown"

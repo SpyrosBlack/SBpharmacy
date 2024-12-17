@@ -15,7 +15,7 @@ public class MedicineService {
         this.medicineRepo = medicineRepo;
     }
 
-    public List<Medicine> getAllMedicine() {
+    public List<Medicine> getAllNotDisabledMedicine() {
         return medicineRepo.findAll()
                 .stream().filter(m -> m.isDisabledMed() == false).collect(Collectors.toList());
     }
@@ -36,5 +36,6 @@ public class MedicineService {
         Medicine m = medicineRepo.getReferenceById(medicineid);
         m.setDisabledMed(true);
         medicineRepo.save(m);
+       // medicineRepo.delete(m);
     }
 }

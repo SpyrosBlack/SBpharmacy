@@ -42,7 +42,7 @@ public class MedicineController {
 
     @GetMapping("/allmed")
     public String showAllMedicine(ModelMap modelMap) {
-        modelMap.addAttribute("medicines", medicineService.getAllMedicine());
+        modelMap.addAttribute("medicines", medicineService.getAllNotDisabledMedicine());
         return "allmedicinetable";
     }
 

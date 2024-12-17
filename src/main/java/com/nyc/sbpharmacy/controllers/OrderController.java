@@ -44,7 +44,7 @@ public class OrderController {
         OrderItemDto tempitem = new OrderItemDto();
         modelMap.addAttribute("tempitem", tempitem);
         // I need all the medicines for the dropdown
-        modelMap.addAttribute("allmedicines", medicineService.getAllMedicine());
+        modelMap.addAttribute("allmedicines", medicineService.getAllNotDisabledMedicine());
         // Put the partial submitted items in the model
         return "pharmacyorder";
     }
@@ -89,10 +89,12 @@ public class OrderController {
         List<OrderItemDto> orderitems = (List<OrderItemDto>) session.getAttribute("tempItemsList");
 
         Order myorder = new Order();
+        //convert OrderItemDtos to Entity
         List<OrderItem> tempitems = orderitems.stream()
                 .map(o -> orderService.mapToEntity(o))
                 .toList();
 
+        // fix both sides of the relationship
         tempitems.forEach(i -> i.setOrder(myorder));
         myorder.setItems(tempitems);
 

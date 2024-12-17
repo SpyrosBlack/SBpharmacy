@@ -79,7 +79,8 @@
                                     <td>
                                         <div class="float-end text-nowrap">
                                             <a class="btn btn-sm btn-secondary"
-                                               th:href="@{/medicineedit/{medicineid}(medicineid=${m.medicineid})}">Edit</a>
+                                               th:href="@{/medicineedit/{id}(id=${m.medicineid})}">Edit</a>
+<!--                                            TODO check data-confirm-message-->
                                             <form class="js-submit-confirm d-inline"
                                                   data-confirm-message="Are you sure?" method="post"
                                                   th:action="@{/medicinedelete/{medicineid}(medicineid=${m.medicineid})}">

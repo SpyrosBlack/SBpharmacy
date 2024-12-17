@@ -59,7 +59,7 @@ public class MainController {
         AppUserDto loggedinuser = (AppUserDto) session.getAttribute("loggedinuser");
         ddto.setTotalorders(orderService.getAllOrderForPharmacy(loggedinuser.getPharmacy()).size());
         if (loggedinuser.getRole() == "Pharmacist") {
-            ddto.setTotalcostoforders(orderService.getOrdersCostTotalByPharmacy(loggedinuser.getPharmacy()));
+          //  ddto.setTotalcostoforders(orderService.getOrdersCostTotalByPharmacy(loggedinuser.getPharmacy()));
         }
 
         mm.addAttribute("mymessages",  messageService.getMyMessages(appUserService.mapToEntity(loggedinuser)));
