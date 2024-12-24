@@ -1,11 +1,11 @@
 
 -- populate user table
 INSERT INTO `pharmacydb`.`app_user` (`firstname`, `lastname`, `username`, `userpassword`, `role`)
-VALUES ('Lakis', 'Spiros', 'Spiros', '1234', 'Pharmacist');
+VALUES ('Lakis', 'Spiros', 'Spiros', '$2a$12$TWdtQ4zIqOYp4fkWXDe6Xe.mSJHjEArlZ22rHt1mjBGtFgmfKv/Fi', 'Pharmacist');
 INSERT INTO `pharmacydb`.`app_user` (`firstname`, `lastname`, `username`, `userpassword`, `role`)
-VALUES ('Lakis', 'Spiros', 'Kostas', '1234', 'Pharmacist');
+VALUES ('Lakis', 'Spiros', 'Kostas', '$2a$12$TWdtQ4zIqOYp4fkWXDe6Xe.mSJHjEArlZ22rHt1mjBGtFgmfKv/Fi', 'Pharmacist');
 INSERT INTO `pharmacydb`.`app_user` (`firstname`, `lastname`, `username`, `userpassword`, `role`)
-VALUES ('Lakis', 'Lakis', 'admin', '1234', 'Admin');
+VALUES ('Lakis', 'Lakis', 'admin', '$2a$12$TWdtQ4zIqOYp4fkWXDe6Xe.mSJHjEArlZ22rHt1mjBGtFgmfKv/Fi', 'Admin');
 
 -- populate medicines
 INSERT INTO `pharmacydb`.`medicine` (`medicineprice`, `medicinename`)

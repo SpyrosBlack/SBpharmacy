@@ -9,7 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-    <title>Add new pharmacy</title>
+    <title>Message</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,12 +40,12 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Login here</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Send message</h1>
                                 </div>
                                 <form class="user" method="post" th:action="@{/insertmessage}" th:object="${message}">
 
-                                    <div class="dropdown no-arrow mb-4">
-                                        <select id="selectmed" name="receiver" required>
+                                    <div>
+                                        <select id="selectmed" class="form-control" name="receiver" required>
                                             <option value="0">Receiver</option>
                                             <th:block th:each="rec : ${receivers}">
                                                 <option th:text="|${rec.firstname}-${rec.lastname}-${rec.role}|"
@@ -53,7 +53,7 @@
                                             </th:block>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-control-plaintext">
                                         <textarea class="text-black-50" name="messagebody"></textarea>
                                     </div>
 

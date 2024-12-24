@@ -4,6 +4,7 @@ import com.nyc.sbpharmacy.model.Medicine;
 import com.nyc.sbpharmacy.repos.MedicineRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +17,14 @@ public class MedicineService {
     }
 
     public List<Medicine> getAllNotDisabledMedicine() {
+//        List<Medicine> allMedicines = medicineRepo.findAll();
+//        List<Medicine> returnedList = new ArrayList<>();
+//        for(Medicine m : allMedicines) {
+//            if (!m.isDisabledMed()){
+//                returnedList.add(m);
+//            }
+//        }
+
         return medicineRepo.findAll()
                 .stream().filter(m -> m.isDisabledMed() == false).collect(Collectors.toList());
     }

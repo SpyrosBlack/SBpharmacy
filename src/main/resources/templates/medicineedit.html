@@ -75,6 +75,17 @@
                                                            type="number">
                                                 </div>
 
+                                                <div>
+                                                    <select name="category" class="form-control" required>
+                                                        <option value="0">Pick a category</option>
+                                                        <th:block th:each="c : ${categories}">
+                                                            <option th:text="${c.categoryname}"
+                                                                    th:value="${c.id}"
+                                                                th:selected="${c.id==medicine.category.id}"></option>
+                                                        </th:block>
+                                                    </select>
+                                                </div>
+<br>
                                                 <button class="btn btn-primary" type="submit">Update</button>
                                                 <ul>
                                                     <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>

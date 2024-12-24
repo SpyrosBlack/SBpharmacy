@@ -73,7 +73,16 @@
                                                            placeholder="Price"
                                                            type="number">
                                                 </div>
-
+                                                <div class="dropdown-item">
+                                                    <select name="category" required>
+                                                        <option value="0">Pick a category</option>
+                                                        <th:block th:each="c : ${categories}">
+                                                            <option th:text="${c.categoryname}"
+                                                                    th:value="${c.id}"></option>
+                                                        </th:block>
+                                                    </select>
+                                                </div>
+<br>
                                                 <button class="btn btn-primary" type="submit">Insert</button>
                                                 <ul>
                                                     <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>

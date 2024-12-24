@@ -1,6 +1,7 @@
 package com.nyc.sbpharmacy.controllers;
 
 import com.nyc.sbpharmacy.model.Medicine;
+import com.nyc.sbpharmacy.service.CategoryService;
 import com.nyc.sbpharmacy.service.MedicineService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 public class MedicineController {
 
     @Autowired
     MedicineService medicineService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @GetMapping("/insertmed")
     public String showMedicineForm(ModelMap modelMap) {
         Medicine medicine = new Medicine();
+
         modelMap.addAttribute("medicine", medicine);
+        // put all categories to the model. I need them to create the dropdown list
+        modelMap.addAttribute("categories", categoryService.getAllCategories());
         return "medicineform";
     }
 
@@ -42,7 +51,8 @@ public class MedicineController {
 
     @GetMapping("/allmed")
     public String showAllMedicine(ModelMap modelMap) {
-        modelMap.addAttribute("medicines", medicineService.getAllNotDisabledMedicine());
+        List<Medicine> allNotDisabledMedicine = medicineService.getAllNotDisabledMedicine();
+        modelMap.addAttribute("medicines", allNotDisabledMedicine);
         return "allmedicinetable";
     }
 
@@ -50,6 +60,7 @@ public class MedicineController {
     public String updateMedicine(@PathVariable(name = "medicineid") final Integer medicineid,
                                  ModelMap modelMap) {
         modelMap.addAttribute("medicine", medicineService.getMedicineById(medicineid));
+        modelMap.addAttribute("categories", categoryService.getAllCategories());
         return "medicineedit";
     }
 

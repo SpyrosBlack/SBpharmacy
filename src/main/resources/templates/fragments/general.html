@@ -67,7 +67,6 @@
                     <h6 class="collapse-header">Φάρμακα:</h6>
                     <a class="collapse-item" href="insertmed">Εισαγωγή Φαρμάκου</a>
                     <a class="collapse-item" href="allmed">Φάρμακα</a>
-
                 </div>
             </div>
         </li>
@@ -153,7 +152,7 @@
                     <h6 class="dropdown-header">
                         Message Center
                     </h6>
-                    <a th:each="message : ${mymessages}" class="dropdown-item d-flex align-items-center" href="#">
+                    <a th:unless="${mymessages.size()==0}" th:each="message : ${mymessages}" class="dropdown-item d-flex align-items-center" href="#">
                         <div class="dropdown-list-image mr-3">
                             <img alt="..." class="rounded-circle"
                                  src="img/undraw_profile_1.svg">
@@ -177,7 +176,7 @@
                 <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
                    href="#" id="userDropdown" role="button">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                          th:text="${session.loggedinuser.username}"/>
+                          th:text="${session.loggedinuser.role}"/>
                     <img class="img-profile rounded-circle"
                          src="img/undraw_profile.svg">
                 </a>
