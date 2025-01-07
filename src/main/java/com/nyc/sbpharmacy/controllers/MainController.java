@@ -93,7 +93,7 @@ public class MainController {
         }
         // Hash the first pass
         String hashedpass = passwordEncoder.encode(dto.password1);
-        AppUser user = appUserService.registerDtoToEntity(dto);
+        AppUser user = appUserService.convertDtoToEntity(dto);
         user.setUserpassword(hashedpass);
         appUserService.createUser(user);
         redirectAttributes.addFlashAttribute("message", "User registered successfully. Please login");

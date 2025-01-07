@@ -55,7 +55,7 @@ public class AppUserService {
                 collect(Collectors.toList());
     }
 
-    public AppUser registerDtoToEntity(MainController.RegisterDto dto) {
+    public AppUser convertDtoToEntity(MainController.RegisterDto dto) {
         AppUser user = new AppUser();
         user.setFirstname(dto.firstname());
         user.setRole(Role.Pharmacist);
