@@ -112,6 +112,12 @@
                 <span>Αποθήκη</span></a>
         </li>
 
+        <li class="nav-item" th:if="${session.loggedinuser.role=='Admin'}">
+            <a class="nav-link" href="/exportpdf">
+                <i class="fas fa-fw fa-person-booth"></i>
+                <span>Export Users</span></a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="/newmessage">
                 <i class="fas fa-fw fa-facebook-messenger"></i>

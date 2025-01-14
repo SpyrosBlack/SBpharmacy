@@ -14,8 +14,12 @@ import java.io.IOException;
 @Component
 @Order(1)
 public class SessionFilter extends OncePerRequestFilter {
+
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         // Get the HttpSession from the request object
         HttpSession session = request.getSession();
         if (session.getAttribute("loggedinuser") == null) {
@@ -23,14 +27,15 @@ public class SessionFilter extends OncePerRequestFilter {
         }else{
             filterChain.doFilter(request, response);
         }
-
     }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String url = request.getRequestURL().toString();
-       if(url.equals("http://localhost:8080/")
-               || url.equals("http://localhost:8080/dologin" )
+       if(url.equals("http://localhost:8080/")// login form
+               || url.equals("http://localhost:8080/dologin")//login form submision
+               || url.equals("http://localhost:8080/register")
+               || url.equals("http://localhost:8080/doregister")
                || url.contains("/css/")
                || url.contains("/img/")
                || url.contains("/js/")

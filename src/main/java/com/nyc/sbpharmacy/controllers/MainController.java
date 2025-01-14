@@ -44,9 +44,9 @@ public class MainController {
         return "redirect:/";
     }
 
+
     @PostMapping("/dologin")
     public String doLogin(@ModelAttribute("loginDTO") LoginDto dto, ModelMap mm, HttpSession session) {
-
         AppUserDto loggedinuser = appUserService.dologin(dto.username, dto.userpass);
         if (loggedinuser == null) {
             mm.addAttribute("message", "Wrong user name or password");
@@ -57,7 +57,6 @@ public class MainController {
             session.setAttribute("loggedinuser", loggedinuser);
             return "redirect:/showdashboard";
         }
-
     }
 
     @GetMapping("/showdashboard")
@@ -69,7 +68,6 @@ public class MainController {
         if (loggedinuser.getRole() == "Pharmacist") {
           //  ddto.setTotalcostoforders(orderService.getOrdersCostTotalByPharmacy(loggedinuser.getPharmacy()));
         }
-
         mm.addAttribute("mymessages",  messageService.getMyMessages(appUserService.mapToEntity(loggedinuser)));
         mm.addAttribute("dashboard", ddto);
         return "index";
